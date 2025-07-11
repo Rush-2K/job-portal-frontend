@@ -1,0 +1,10 @@
+.user-greeting {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-area {
+  background-color: #0f3a6b25; /* light gray or your theme color */
+}
+
