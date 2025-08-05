@@ -1,59 +1,50 @@
-# JobPortalFrontend
+# Job Portal Front End
+A secure web application for job portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+# Tech Stack
+Frontend: Angular
 
-## Development server
 
-To start a local development server, run:
+Backend: Spring Boot(look up to the project job-portal-api inside the repo)  
 
-```bash
+
+Auth: JWT (JSON Web Token)  
+
+
+Database: MySQL
+
+# Setup Instruction
+Prerequisites
+- Node.js & Angular CLI Installed
+
+```
+# Frontend
+cd frontend/
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Features
 
-## Code scaffolding
+| Feature           | Status    | Notes                                                   |
+|------------------|-----------|----------------------------------------------------------|
+| Angular Setup     | ✅ Done     | Project initialized with Angular CLI                     |
+| Routing           | ✅ Done     | Pages for Home, Login, Register                          |
+| Auth Integration  | ✅ Done     | Connects to backend using HTTPClient                     |
+| JWT Storage       | ✅ Done     | Stored in `localStorage`                                |
+| Route Guard       | ⏳ Pending | Blocks access to protected routes for unauthenticated users |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# 🔐 Auth Flow Summary
+- Users register or log in through Angular forms.
 
-```bash
-ng generate component component-name
-```
+- HTTPClient sends credentials to Spring Boot endpoint.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- JWT is returned and stored in frontend.
 
-```bash
-ng generate --help
-```
+- Route guard checks for JWT before allowing access to private pages.
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
