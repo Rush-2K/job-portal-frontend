@@ -11,6 +11,8 @@ import { FooterComponent } from "./shared/components/footer/footer.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { TokenInterceptor } from "./core/interceptors/token.interceptor";
 import { RegisterComponent } from "./features/auth/register/register.component";
+import { CommonModule } from "@angular/common";
+import { JobListComponent } from "./features/jobs/job-list/job-list.component";
 
 @NgModule({
     declarations: [
@@ -19,13 +21,15 @@ import { RegisterComponent } from "./features/auth/register/register.component";
         LoginComponent,
         HeaderComponent,
         FooterComponent,
-        RegisterComponent
+        RegisterComponent,
+        JobListComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
         BrowserModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        CommonModule
     ],
     providers:[
         {
