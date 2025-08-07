@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ActiveJob, PaginatedJobsResponse } from '../../shared/models/active-job.model';
 import { ApiResponse } from '../../shared/models/api-response.model';
+import { JobDetails } from '../../shared/models/job-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,12 @@ export class JobService {
   getActiveJobs(page: number, size: number): Observable<ApiResponse<PaginatedJobsResponse>> {
     return this.http.get<ApiResponse<PaginatedJobsResponse>>(
       `${this.apiUrl}/view?page=${page}&size=${size}`
+    );
+  }
+
+  getJobDetails(id: number) {
+    return this.http.get<ApiResponse<JobDetails>>(
+      `${this.apiUrl}/view/${id}`
     );
   }
 

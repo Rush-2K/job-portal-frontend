@@ -1,4 +1,5 @@
 export interface ActiveJob {
+    id: number;
     title: string,
     location: string,
     companyName: string,
@@ -11,7 +12,7 @@ export interface PaginatedJobsResponse {
   content: ActiveJob[];
   totalPages: number;
   totalElements: number;
-  number: number; // current page
+  page: number; // current page
   size: number;   // page size
   first: boolean;
   last: boolean;

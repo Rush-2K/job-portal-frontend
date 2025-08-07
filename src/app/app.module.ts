@@ -13,6 +13,8 @@ import { TokenInterceptor } from "./core/interceptors/token.interceptor";
 import { RegisterComponent } from "./features/auth/register/register.component";
 import { CommonModule } from "@angular/common";
 import { JobListComponent } from "./features/jobs/job-list/job-list.component";
+import { JobDetailsComponent } from "./features/jobs/job-details/job-details.component";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -22,14 +24,16 @@ import { JobListComponent } from "./features/jobs/job-list/job-list.component";
         HeaderComponent,
         FooterComponent,
         RegisterComponent,
-        JobListComponent
+        JobListComponent,
+        JobDetailsComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        CommonModule
+        CommonModule,
+        MatProgressSpinnerModule
     ],
     providers:[
         {

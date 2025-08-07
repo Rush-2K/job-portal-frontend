@@ -25,18 +25,17 @@ export class JobListComponent implements OnInit{
   }
 
   fetchJobs(page: number): void {
+    const safePage = Number.isFinite(page) ? page : 0;
     console.log("fetching job..")
     this.isLoading = true;
-    this.jobService.getActiveJobs(page, this.pageSize).subscribe({
+    this.jobService.getActiveJobs(safePage, this.pageSize).subscribe({
       next: (response: ApiResponse<PaginatedJobsResponse>) => {
         const data = response.data;
         this.jobs = data.content;
         this.totalPages = data.totalPages;
         this.totalElements = data.totalElements;
-        this.currentPage = data.number;
+        this.currentPage = data.page;
         this.isLoading = false;
-
-        console.log("data: ", this.jobs);
       },
       error: err => {
         console.error('Error fetching jobs:', err);
@@ -45,7 +44,12 @@ export class JobListComponent implements OnInit{
     });
   }
 
-  onPageChange(event: number): void {
-    this.fetchJobs(event);
+  onPageChange(page: number): void {
+    if (!Number.isFinite(page) || page < 0 || page >= this.totalPages) {
+      console.warn('Invalid page number:', page);
+      return;
+    }
+
+    this.fetchJobs(page);
   }
 }
