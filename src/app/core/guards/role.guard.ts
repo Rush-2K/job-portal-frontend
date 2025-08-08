@@ -11,6 +11,8 @@ export class RoleGuard implements CanActivate {
     const expectedRole = route.data['expectedRole'];
     const userRole = this.userSession.getUserRole();
 
+    console.log("user Role: ", userRole);
+
     if (userRole === expectedRole) {
       return true;
     }

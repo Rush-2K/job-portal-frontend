@@ -55,6 +55,7 @@ export class UserSessionService {
   clearSession(): void {
     localStorage.removeItem(this.USER_KEY);
     localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.ROLE);
     this.sessionSubject.next(null);
   }
 }

@@ -17,6 +17,7 @@ export class JobListComponent implements OnInit{
   pageSize: number = 5;
   isLoading = false;
   error: string | null = null;
+  totalJobs: number = 0;
 
   constructor(private jobService: JobService) {}
 

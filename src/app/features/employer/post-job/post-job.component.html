@@ -1,0 +1,56 @@
+<form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="job-form">
+    <div class="form-group">
+        <label>Title</label>
+        <input formControlName="title" />
+        <div class="error" *ngIf="jobForm.get('title')?.invalid && jobForm.get('title')?.touched">
+            Title is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Location</label>
+        <input formControlName="location" />
+        <div class="error" *ngIf="jobForm.get('location')?.invalid && jobForm.get('location')?.touched">
+            Location is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Company Name</label>
+        <input formControlName="companyName" />
+        <div class="error" *ngIf="jobForm.get('companyName')?.invalid && jobForm.get('companyName')?.touched">
+            Company Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="number" formControlName="salary" />
+        <div class="error" *ngIf="jobForm.get('salary')?.invalid && jobForm.get('salary')?.touched">
+            Salary is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Job Type</label>
+        <select formControlName="jobType">
+            <option value="">Select</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Contract">Contract</option>
+        </select>
+        <div class="error" *ngIf="jobForm.get('jobType')?.invalid && jobForm.get('jobType')?.touched">
+            Job Type is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description"></textarea>
+        <div class="error" *ngIf="jobForm.get('description')?.invalid && jobForm.get('description')?.touched">
+            Description is required.
+        </div>
+    </div>
+
+    <button type="submit">Post Job</button>
+</form>

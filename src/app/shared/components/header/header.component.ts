@@ -9,8 +9,11 @@ import { UserSessionService } from '../../../core/services/user-session.service'
 })
 export class HeaderComponent implements OnInit{
   email: string | null = null;
+  userRole: string | null = null;
 
-  constructor(private session: UserSessionService) {}
+  constructor(private session: UserSessionService) {
+    this.userRole = this.session.getUserRole();
+  }
 
   ngOnInit(): void {
       this.session.session$.subscribe(user => {

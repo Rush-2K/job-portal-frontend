@@ -4,6 +4,8 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { JobListComponent } from './features/jobs/job-list/job-list.component';
 import { JobDetailsComponent } from './features/jobs/job-details/job-details.component';
+import { PostJobComponent } from './features/employer/post-job/post-job.component';
+import { RoleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
   { 
@@ -17,6 +19,12 @@ export const routes: Routes = [
   { 
     path: 'jobs', 
     component: JobListComponent
+  },
+  { 
+    path: 'postJob', 
+    component: PostJobComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRole: 'EMPLOYER' }
   },
   { 
     path: 'jobs/:id', 

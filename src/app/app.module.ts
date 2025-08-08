@@ -15,6 +15,7 @@ import { CommonModule } from "@angular/common";
 import { JobListComponent } from "./features/jobs/job-list/job-list.component";
 import { JobDetailsComponent } from "./features/jobs/job-details/job-details.component";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PostJobComponent } from "./features/employer/post-job/post-job.component";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         FooterComponent,
         RegisterComponent,
         JobListComponent,
-        JobDetailsComponent
+        JobDetailsComponent,
+        PostJobComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
