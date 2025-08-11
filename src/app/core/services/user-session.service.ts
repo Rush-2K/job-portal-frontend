@@ -17,26 +17,28 @@ export class UserSessionService {
   private sessionSubject = new BehaviorSubject<LoggedInUser | null>(null)
   session$ = this.sessionSubject.asObservable();
 
-  private readonly USER_KEY = 'user';
-  private readonly TOKEN_KEY = 'token';
+  private readonly EMAIL = 'email';
+  private readonly TOKEN = 'token';
   private readonly ROLE = 'role';
+  private readonly USER_ID = 'userId';
 
   constructor() { }
 
   setUserSession(user: LoggedInUser): void {
-    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
-    localStorage.setItem(this.TOKEN_KEY, user.token);
+    localStorage.setItem(this.EMAIL, user.email);
+    localStorage.setItem(this.USER_ID, user.userId.toString());
+    localStorage.setItem(this.TOKEN, user.token);
     localStorage.setItem(this.ROLE, user.role);
     this.sessionSubject.next(user); // to notify the components
   }
 
   getUser(): LoggedInUser | null {
-    const user = localStorage.getItem(this.USER_KEY);
+    const user = localStorage.getItem(this.EMAIL);
     return user ? JSON.parse(user) : null;
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    return localStorage.getItem(this.TOKEN);
   }
 
   getEmail(): string | null {
@@ -53,9 +55,10 @@ export class UserSessionService {
   }
 
   clearSession(): void {
-    localStorage.removeItem(this.USER_KEY);
-    localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.EMAIL);
+    localStorage.removeItem(this.TOKEN);
     localStorage.removeItem(this.ROLE);
+    localStorage.removeItem(this.USER_ID);
     this.sessionSubject.next(null);
   }
 }

@@ -18,7 +18,7 @@
                             </nav>
                         </div>
                         <!-- User NOT logged in -->
-                        <ng-container *ngIf="!email; else loggedIn">
+                        <ng-container *ngIf="!token; else loggedIn">
                             <div class="header-btn d-none f-right d-lg-block">
                                 <a routerLink="/register" class="btn head-btn1">Register</a>
                                 <a routerLink="/login" class="btn head-btn2">Login</a>
